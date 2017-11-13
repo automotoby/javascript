@@ -148,5 +148,5 @@ var userName = prompt('Введите вашe имя',''),
 
     }
          function setResult(res) {
-      document.getElementById("result2").innerHTML = "<b>Result is</b>: " + res;
+      document.getElementById("result").innerHTML = "<b>Result is</b>: " + res;
     }
