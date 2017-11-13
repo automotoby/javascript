@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Анкета</title>
+
+</head>
+<body> 
+    
+    <div id="result"> </div> 
+
+<script>
+        
+        
+        var userName = prompt('Введите вашe имя',''),
+        userLast = prompt('Введите вашу фамилию',''),
+        userMiddle = prompt('Введите ваше отчество','');
+
+
+        if (userName && userLast && userMiddle) {
+
+            var userAge = prompt('Ваш возвраст',''),
+            b = +userAge + 5;
+            c = userAge * 365;
+
+            if (!isNaN(userAge) && userAge != 0) {
+            var userGender = confirm('Ваш пол - мужской?',''),
+                a = userGender?'Мужской':'Женский';
+                
+
+            
+            setResult();
+            }
+        }
+        else ( alert('Введите корректные данные!'));
+
+        function setResult() {
+         document.getElementById("result").innerHTML = 'Ваше ФИО: ' + userLast + ' ' + userName + ' ' + userMiddle + '<br>' + 'Ваш возвраст в годах: ' + userAge + '<br>' + 'Ваш возвраст в днях: ' + c + '<br>' + 'Через 5 лет вам будет: '+ b + '<br>' + 'Ваш пол: ' + a;
+        }
+    </script>   
+</body>
+</html>
