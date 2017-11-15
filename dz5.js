@@ -1,9 +1,7 @@
-var arr = [1,2,3,4,5,6,7,8,9];
-
-    // for(var i = 0; arr.length < 10 ; i++) {
-    // arr[i] = Math.floor(Math.random()*10)+1;
-    // };
-    console.log('['+ arr.toString()+']');
+    for(var i = 0; arr.length < 10 ; i++) {
+    arr[i] = Math.floor(Math.random()*10)+1; //заполнение массива случайными числами
+    };
+    console.log('['+ arr.toString()+']'); // вывод масива
     (function swapArray (arr) {
         if(arr.length < 3) return arr;
         var center = Math.floor(arr.length / 2);
@@ -14,5 +12,5 @@ var arr = [1,2,3,4,5,6,7,8,9];
             arr[i] = arr[nextIndex];
             arr[nextIndex] = x;
         }
-        console.log('['+ arr.toString()+']');
+        console.log('['+ arr.toString()+']'); // результат перестроения
     })(arr);

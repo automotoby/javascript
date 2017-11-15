@@ -81,72 +81,91 @@
 
 // while
 
-var i = 3;
-while (i) {
-    alert( i );
-    i--;
-}
+// var i = 3;
+// while (i) {
+//     alert( i );
+//     i--;
+// }
 
-// do While
+// // do While
 
-var i = 0;
-do{
-    alert( i );
-    i++;
-} while ( i < 3 );
+// var i = 0;
+// do{
+//     alert( i );
+//     i++;
+// } while ( i < 3 );
 
-// for
+// // for
 
-for ( var i = 0 ; i <= 5 ; i++ ) {
-    alert ( i );
-}
+// for ( var i = 0 ; i <= 5 ; i++ ) {
+//     alert ( i );
+// }
 
-// break
+// // break
 
-var sum = 0;
-while (true) {
-    var value = +prompt('Введите число','');
-    if (!value) break;
-    sum += valie;  
-}
-alert( 'Сумма: ' + sum);
+// var sum = 0;
+// while (true) {
+//     var value = +prompt('Введите число','');
+//     if (!value) break;
+//     sum += valie;  
+// }
+// alert( 'Сумма: ' + sum);
 
-// continue
+// // continue
 
-for ( var i = 0; i < 10; i++) {
-    if (i % 2 == 0) continue; // пропускает alert для четных
-    alert(i);
-}
+// for ( var i = 0; i < 10; i++) {
+//     if (i % 2 == 0) continue; // пропускает alert для четных
+//     alert(i);
+// }
 
-for (var i = 0; i < 10; i++) {
+// for (var i = 0; i < 10; i++) {
     
-      if (i % 2) {
-        alert( i );
-      }
+//       if (i % 2) {
+//         alert( i );
+//       }
     
-    }
+//     }
 
-var userName = prompt('Введите вашe имя',''),
-    userLast = prompt('Введите вашу фамилию',''),
-    userMiddle = prompt('Введите ваше отчество','');
+// var userName = prompt('Введите вашe имя',''),
+//     userLast = prompt('Введите вашу фамилию',''),
+//     userMiddle = prompt('Введите ваше отчество','');
     
 
-    if (userName && userLast && userMiddle) {
+//     if (userName && userLast && userMiddle) {
 
-        var userAge = prompt('Ваш возвраст',''),
-        b = +userAge + 5;
-        c = userAge * 365;
+//         var userAge = prompt('Ваш возвраст',''),
+//         b = +userAge + 5;
+//         c = userAge * 365;
 
-        if (!isNaN(userAge)) {
-        var userGender = confirm('Ваш пол - мужской?',''),
-            a = userGender?'Мужской':'Женский';
+//         if (!isNaN(userAge)) {
+//         var userGender = confirm('Ваш пол - мужской?',''),
+//             a = userGender?'Мужской':'Женский';
             
 
         
-        alert('Ваше ФИО: ' + userLast + ' ' + userName + ' ' + userMiddle + '\n' + 'Ваш возвраст в годах: ' + userAge + '\n' + 'Ваш возвраст в днях: ' + c + '\n' + 'Через 5 лет вам будет: '+ b + '\n' + 'Ваш пол: ' + a)
-        }
+//         alert('Ваше ФИО: ' + userLast + ' ' + userName + ' ' + userMiddle + '\n' + 'Ваш возвраст в годах: ' + userAge + '\n' + 'Ваш возвраст в днях: ' + c + '\n' + 'Через 5 лет вам будет: '+ b + '\n' + 'Ваш пол: ' + a)
+//         }
 
-    }
-         function setResult(res) {
-      document.getElementById("result").innerHTML = "<b>Result is</b>: " + res;
-    }
+//     }
+//          function setResult(res) {
+//       document.getElementById("result").innerHTML = "<b>Result is</b>: " + res;
+//     }
+
+var arr = [];
+
+    for(var i = 0; arr.length < 9 ; i++) {
+    arr[i] = Math.floor(Math.random()*10)+1;
+    };
+    console.log('['+ arr.toString()+']');
+    (function swapArray (arr) {
+        if(arr.length < 3) return arr;
+        var center = Math.floor(arr.length / 2);
+        var odd = (arr.length % 2);
+        for(var i = 0; i < center; i++) {
+            var nextIndex = center + i + odd;
+            var x = arr[i];
+            arr[i] = arr[nextIndex];
+            arr[nextIndex] = x;
+        }
+        console.log('['+ arr.toString()+']'); 
+})(arr);   
