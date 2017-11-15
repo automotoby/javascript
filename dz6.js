@@ -1,4 +1,4 @@
-var a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+var a = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 
 console.log('['+ a.toString()+']'); // вывод начального массива
 
@@ -27,6 +27,7 @@ console.log('['+ a.toString()+']'); // вывод начального масс�
             if(a.length < 3) return a;
             var center = Math.floor(a.length / 2);
             var quarter = Math.floor(center / 2);
+            var odd = (a.length % 2);
             for (var i = 0; i < quarter; i++) {
                 // сортировка от 1 до центра
                 var n = center - a[i];
@@ -35,8 +36,8 @@ console.log('['+ a.toString()+']'); // вывод начального масс�
                 a[n] = x;
                 // сортировка от центра до последнего числа
                 var x = a[(a.length - 1) - i];
-                a[(a.length - 1) - i] = a[center + i + 1];
-                a[center + i + 1] = x;
+                a[(a.length - 1) - i] = a[center + i + odd];
+                a[center + i + odd] = x;
 
 
             }
