@@ -151,21 +151,60 @@
 //       document.getElementById("result").innerHTML = "<b>Result is</b>: " + res;
 //     }
 
-var arr = [];
+// var arr = [];
 
-    for(var i = 0; arr.length < 9 ; i++) {
-    arr[i] = Math.floor(Math.random()*10)+1;
-    };
-    console.log('['+ arr.toString()+']');
-    (function swapArray (arr) {
-        if(arr.length < 3) return arr;
-        var center = Math.floor(arr.length / 2);
-        var odd = (arr.length % 2);
-        for(var i = 0; i < center; i++) {
-            var nextIndex = center + i + odd;
-            var x = arr[i];
-            arr[i] = arr[nextIndex];
-            arr[nextIndex] = x;
-        }
-        console.log('['+ arr.toString()+']'); 
-})(arr);   
+//     for(var i = 0; arr.length < 9 ; i++) {
+//     arr[i] = Math.floor(Math.random()*10)+1;
+//     };
+//     console.log('['+ arr.toString()+']');
+//     (function swapArray (arr) {
+//         if(arr.length < 3) return arr;
+//         var center = Math.floor(arr.length / 2);
+//         var odd = (arr.length % 2);
+//         for(var i = 0; i < center; i++) {
+//             var nextIndex = center + i + odd;
+//             var x = arr[i];
+//             arr[i] = arr[nextIndex];
+//             arr[nextIndex] = x;
+//         }
+//         console.log('['+ arr.toString()+']'); 
+// })(arr);  
+
+// class Person { // Базовый класс
+//     constructor(name) { // Конструктор
+//         this._name = name;
+//         this._friend = []; // Создание и инициализация поля
+//         this._spouse = null;
+//     }
+//     sayHello() { // Метод класса
+//         var s = "hi, my name's " + this._name;
+//         if (this._friends.length) {
+//             s = s + '\n'
+//         }
+//     }
+//  }
+//  class Man extends Person { // Класс наследник
+//     constructor(name) {
+//         super(name); // Вызов базового конструктора
+//     }
+//     setFriend(person) {
+//         if(person instanceof Men) {
+//             this._friends.push(person);
+//         }
+//     }
+//     sayHello() { // Переопределение метода sayHello
+//         super.sayHello(); // Вызов базовой реализации
+//         console.log("Please, hire me");
+//     }
+//  }
+//  var p = new Man("Vital"); // Создание экземпляра класса
+//  p.sayHello();
+
+//  var ivan = 
+'use strict';
+const readline = require('readline');
+const rl = readline.createInterface({  input: process.stdin,  output: process.stdout});
+rl.question('What do you think of Node.js? ', (answer) => {
+  console.log(`Thank you for your valuable feedback: ${answer}`); 
+  rl.close();
+});
