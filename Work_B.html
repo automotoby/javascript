@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div>
+        <input name = 'btn' type="button" value="Сколько гласных в предложении?" onclick='btn()'>
+    </div>
+
+  <script>
+
+  
+    function btn() {
+
+    let str = prompt('Введите любую строку','');
+    let result = str.match(/[аеёиоуыэюя]/gi);
+        return alert(result.length);
+    
+    //alert(result);
+    };
+  </script>
+</body>
+
+</html>
