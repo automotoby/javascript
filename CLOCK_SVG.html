@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CLOCK_SVG</title>
+    <style>
+        #circl { stroke-width: 1px; stroke: #000; fill: #fff}
+        #hour, #min, #sec { stroke-width: 1px; fill: grey; stroke: black; }
+        #sec { stroke: red; }
+        .elem { width:30%; margin:0 auto; }
+    </style>
+</head>
+<body>
+    <div class="elem">
+    <svg id="clock" viewBox="0 0 100 100">
+        <circle id="circl" cx="50" cy="50" r="45"/>
+     <!-- Групировка из 3х стрелок    -->
+            <g>
+            <rect id="hour" x="47.5" y="25" width="5" height="30"/>
+            <rect id="min" x="49" y="15" width="3" height="40"/>
+            <line id="sec" x1="50" y1="50" x2="50" y2="10"/>
+            </g>
+    </svg>
+    </div>
+
+    <script>
+        //функция по интервалу , запускается каждую секунду
+        setInterval(function() {
+            //функция расчета градуса поворота для каждой стрелки путем добавления атрибута по id
+            function time(elemClock, deg) {
+            elemClock.setAttribute('transform', 'rotate('+ deg +' 50 50)')
+            }
+            //получаем текущее время и создаем переменную
+            var date = new Date()
+            //получаем аргумент для функции time 
+            time(sec, 6*date.getSeconds()) //60*6=360 
+            time(min, 6*date.getMinutes())
+            time(hour, 30*(date.getHours()%12) + date.getMinutes()/2)
+            //360/30 = 12 часа , %12 проводим к стрелочным 
+            //+ добавляем мин
+            }, 1000)
+    </script>
+</body>
+</html>
