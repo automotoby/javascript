@@ -9,9 +9,9 @@
         #circl { stroke-width: 1px; stroke: #000; fill: #fff}
         #hour, #min, #sec { stroke-width: 1px; fill: grey; stroke: black;}
         #sec { stroke: red; }
-        #elem { width:30%; margin:0 auto; }
-        .num {fill:rgb(0, 0, 0);}
-        .number{ font-size: 0.3em; fill: rgb(255, 255, 255)}
+        #elem { width:50%; margin:0 auto; }
+        .num {fill:rgb(255, 255, 255);}
+        .number{ font-size: 0.3em; fill: rgb(0, 0, 0)}
     </style>
 </head>
 <body>
@@ -23,18 +23,18 @@
         <rect id="min" x="49" y="15" width="3" height="40"/>
         <line id="sec" x1="50" y1="50" x2="50" y2="10"/>
 
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
-        <circle class="num" r="5"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
+        <circle class="num" r="7"/>
 
         <text class="number" >12</text>
         <text class="number" >1</text>
@@ -82,9 +82,11 @@
                 var arc = (i * 30) * Math.PI / 180;//радианы
                 num[i].setAttribute('cy', r - r * Math.cos(arc)+5);
                 num[i].setAttribute('cx', r + r * Math.sin(arc)+5);
-                number[i].setAttribute('y', r - r * Math.cos(arc)+7);
-                number[i].setAttribute('x', r + r * Math.sin(arc)+4);
+                number[i].setAttribute('y', r - r * Math.cos(arc)+8);
+                number[i].setAttribute('x', r + r * Math.sin(arc)+2);
 
+
+                
             }    
             console.log(r * Math.cos(arc));
 
