@@ -10,33 +10,46 @@
         #hour, #min, #sec { stroke-width: 1px; fill: grey; stroke: black;}
         #sec { stroke: red; }
         #elem { width:30%; margin:0 auto; }
-        .num {fill:gray;}
+        .num {fill:rgb(0, 0, 0);}
+        .number{ font-size: 0.3em; fill: rgb(255, 255, 255)}
     </style>
 </head>
 <body>
     <div id="elem">
     <svg id="clock" viewBox="0 0 100 100">
         <circle id="circl" cx="50" cy="50" r="45"/>
-     <!-- Групировка из 3х стрелок    -->
-            <g>
-                <rect id="hour" x="47.5" y="25" width="5" height="30"/>
-                <rect id="min" x="49" y="15" width="3" height="40"/>
-                <line id="sec" x1="50" y1="50" x2="50" y2="10"/>
-            </g>
-            <g>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-                <circle class="num" r="5"/>
-            </g>
+
+        <rect id="hour" x="47.5" y="25" width="5" height="30"/>
+        <rect id="min" x="49" y="15" width="3" height="40"/>
+        <line id="sec" x1="50" y1="50" x2="50" y2="10"/>
+
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+        <circle class="num" r="5"/>
+
+        <text class="number" >12</text>
+        <text class="number" >1</text>
+        <text class="number" >2</text>
+        <text class="number" >3</text>
+        <text class="number" >4</text>
+        <text class="number" >5</text>
+        <text class="number" >6</text>
+        <text class="number" >7</text>
+        <text class="number" >8</text>
+        <text class="number" >9</text>
+        <text class="number" >10</text>
+        <text class="number" >11</text>
+
+
     </svg>
     </div>
 
@@ -57,23 +70,24 @@
             //+ добавляем мин
             }, 1000)
         var ciratr = document.querySelector('svg #circl');
-        var r = +ciratr.attributes[3].value;// получаем радиус окужности часов
+        var r = +ciratr.attributes[3].value ;// получаем радиус окужности часов
+        
         //console.log(ciratr) ;
         //console.log(r) ;
         
         var num = document.querySelectorAll('.num'); //массив циферблата 1-12
-        console.log(num);
+        var number = document.querySelectorAll('.number');   
 
             for (var i = 0; i < num.length; i++) {
                 var arc = (i * 30) * Math.PI / 180;//радианы
                 num[i].setAttribute('cy', r - r * Math.cos(arc)+5);
                 num[i].setAttribute('cx', r + r * Math.sin(arc)+5);
+                number[i].setAttribute('y', r - r * Math.cos(arc)+7);
+                number[i].setAttribute('x', r + r * Math.sin(arc)+4);
+
             }    
             console.log(r * Math.cos(arc));
-            //y = r-r*cos(arc)
-            //x = r+r*sin(arc)
-            //for ( i = 0 ; i < 12; i++)
-            //var arc = i * 30
+
     </script>
 </body>
 </html>
