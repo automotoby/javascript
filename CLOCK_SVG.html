@@ -7,20 +7,35 @@
     <title>CLOCK_SVG</title>
     <style>
         #circl { stroke-width: 1px; stroke: #000; fill: #fff}
-        #hour, #min, #sec { stroke-width: 1px; fill: grey; stroke: black; }
+        #hour, #min, #sec { stroke-width: 1px; fill: grey; stroke: black;}
         #sec { stroke: red; }
-        .elem { width:30%; margin:0 auto; }
+        #elem { width:30%; margin:0 auto; }
+        .num {fill:gray;}
     </style>
 </head>
 <body>
-    <div class="elem">
+    <div id="elem">
     <svg id="clock" viewBox="0 0 100 100">
         <circle id="circl" cx="50" cy="50" r="45"/>
      <!-- Групировка из 3х стрелок    -->
             <g>
-            <rect id="hour" x="47.5" y="25" width="5" height="30"/>
-            <rect id="min" x="49" y="15" width="3" height="40"/>
-            <line id="sec" x1="50" y1="50" x2="50" y2="10"/>
+                <rect id="hour" x="47.5" y="25" width="5" height="30"/>
+                <rect id="min" x="49" y="15" width="3" height="40"/>
+                <line id="sec" x1="50" y1="50" x2="50" y2="10"/>
+            </g>
+            <g>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
+                <circle class="num" r="5"/>
             </g>
     </svg>
     </div>
@@ -41,6 +56,24 @@
             //360/30 = 12 часа , %12 проводим к стрелочным 
             //+ добавляем мин
             }, 1000)
+        var ciratr = document.querySelector('svg #circl');
+        var r = +ciratr.attributes[3].value;// получаем радиус окужности часов
+        //console.log(ciratr) ;
+        //console.log(r) ;
+        
+        var num = document.querySelectorAll('.num'); //массив циферблата 1-12
+        console.log(num);
+
+            for (var i = 0; i < num.length; i++) {
+                var arc = (i * 30) * Math.PI / 180;//радианы
+                num[i].setAttribute('cy', r - r * Math.cos(arc)+5);
+                num[i].setAttribute('cx', r + r * Math.sin(arc)+5);
+            }    
+            console.log(r * Math.cos(arc));
+            //y = r-r*cos(arc)
+            //x = r+r*sin(arc)
+            //for ( i = 0 ; i < 12; i++)
+            //var arc = i * 30
     </script>
 </body>
 </html>
