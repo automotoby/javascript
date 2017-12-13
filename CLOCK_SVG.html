@@ -6,54 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CLOCK_SVG</title>
     <style>
-        #circl { stroke-width: 1px; stroke: #000; fill: #fff}
-        #hour, #min, #sec { stroke-width: 1px; fill: grey; stroke: black;}
-        #sec { stroke: red; }
+        #circl { stroke-width: 1px; stroke: #FCCA66; fill: #FCCA66;}
+        #hour, #min, #sec { stroke-width: 1px; fill: grey; stroke: black; stroke-linejoin: round }
+        #sec { stroke: #000; }
         #elem { width:50%; margin:0 auto; }
-        .num {fill:rgb(255, 255, 255);}
-        .number{ font-size: 0.3em; fill: rgb(0, 0, 0)}
+        .number{ font-size: 0.3em; fill: #000}
     </style>
 </head>
 <body>
     <div id="elem">
     <svg id="clock" viewBox="0 0 100 100">
         <circle id="circl" cx="50" cy="50" r="45"/>
-
-        <rect id="hour" x="47.5" y="25" width="5" height="30"/>
-        <rect id="min" x="49" y="15" width="3" height="40"/>
-        <line id="sec" x1="50" y1="50" x2="50" y2="15"/>
-
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-        <circle class="num" r="7"/>
-
-        <text class="number" >12</text>
-        <text class="number" >1</text>
-        <text class="number" >2</text>
-        <text class="number" >3</text>
-        <text class="number" >4</text>
-        <text class="number" >5</text>
-        <text class="number" >6</text>
-        <text class="number" >7</text>
-        <text class="number" >8</text>
-        <text class="number" >9</text>
-        <text class="number" >10</text>
-        <text class="number" >11</text>
-
+        <g></g>    
+        <rect id="hour" x="48.5" y="25" width="2" height="30"/>
+        <rect id="min" x="49" y="15" width="1" height="40"/>
+        <line id="sec" x1="50" y1="50" x2="50" y2="10"/>
 
     </svg>
     </div>
 
     <script>
+
         //функция по интервалу , запускается каждую секунду
         setInterval(function() {
             //функция расчета градуса поворота для каждой стрелки путем добавления атрибута по id
@@ -69,27 +42,39 @@
             //360/30 = 12 часа , %12 проводим к стрелочным 
             //+ добавляем мин
             }, 1000)
-        var ciratr = document.querySelector('svg #circl');
-        var r = +ciratr.attributes[3].value ;// получаем радиус окужности часов
-        
-        //console.log(ciratr) ;
-        //console.log(r) ;
-        
-        var num = document.querySelectorAll('.num'); //массив циферблата 1-12
-        var number = document.querySelectorAll('.number');   
+            
+            
+            var ciratr = document.querySelector('svg #circl');
+            var r = +ciratr.attributes[3].value - 10 ;// получаем радиус окужности часов
 
-            for (var i = 0; i < num.length; i++) {
+
+
+            for (var i = 0; i < 12; i++) {
+                var g = document.querySelector('g');
                 var arc = (i * 30) * Math.PI / 180;//радианы
-                num[i].setAttribute('cy', r - r * Math.cos(arc)+5);
-                num[i].setAttribute('cx', r + r * Math.sin(arc)+5);
-                number[i].setAttribute('y', r - r * Math.cos(arc)+8);
-                number[i].setAttribute('x', r + r * Math.sin(arc)+2);
-
-
+                var circle=document.createElementNS("http://www.w3.org/2000/svg",'circle');                
                 
-            }    
-            console.log(r * Math.cos(arc));
+                circle.className = "num";
+                circle.setAttribute('r','5');
+                circle.setAttribute("fill","green");
+                circle.setAttribute('cy', r - r * Math.cos(arc)+15);
+                circle.setAttribute('cx', r + r * Math.sin(arc)+15);
+                g.appendChild(circle);
+            }
 
+            for (var i = 1; i < 13; i++) {
+                var g = document.querySelector('g');
+                var arc = (i * 30) * Math.PI / 180;//радианы
+                var txt=document.createElementNS("http://www.w3.org/2000/svg",'text');
+                txt.setAttribute('y', r - r * Math.cos(arc)+17);
+                txt.setAttribute('x', r + r * Math.sin(arc)+15);
+                txt.setAttribute('text-anchor', 'middle');
+                txt.style.fill = "black";
+                txt.style.fontSize = '5';
+                txt.textContent= +i;
+                g.appendChild(txt);
+                
+                }
     </script>
 </body>
 </html>
